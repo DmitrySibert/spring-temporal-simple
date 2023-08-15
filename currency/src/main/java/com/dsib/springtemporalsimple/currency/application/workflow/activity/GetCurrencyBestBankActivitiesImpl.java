@@ -1,6 +1,6 @@
-package com.dsib.springtemporalsimple.currency.application.workflow;
+package com.dsib.springtemporalsimple.currency.application.workflow.activity;
 
-import com.dsib.springtemporalsimple.workflow.GetCurrencyBestBankActivities;
+import com.dsib.springtemporalsimple.workflow.activity.GetCurrencyBestBankActivities;
 
 import java.util.List;
 

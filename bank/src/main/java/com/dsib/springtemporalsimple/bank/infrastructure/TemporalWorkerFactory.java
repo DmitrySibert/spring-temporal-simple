@@ -9,11 +9,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_QUEUE;
+
 @Configuration
 @Slf4j
 public class TemporalWorkerFactory {
-
-  public static final String TASK_QUEUE = "currency_task_queue";
 
   @Bean
   public WorkflowClient initTemporalInfrastructure() {
@@ -22,7 +22,7 @@ public class TemporalWorkerFactory {
     WorkflowServiceStubs service = WorkflowServiceStubs.newLocalServiceStubs();
     WorkflowClient client = WorkflowClient.newInstance(service);
     WorkerFactory factory = WorkerFactory.newInstance(client);
-    Worker worker = factory.newWorker(TASK_QUEUE);
+    Worker worker = factory.newWorker(DEFAULT_QUEUE);
     registerEntities(worker);
 
     factory.start();

@@ -1,4 +1,4 @@
-package com.dsib.springtemporalsimple.workflow;
+package com.dsib.springtemporalsimple.workflow.activity;
 
 import io.temporal.activity.ActivityInterface;
 import io.temporal.activity.ActivityMethod;

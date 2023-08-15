@@ -1,7 +1,10 @@
 package com.dsib.springtemporalsimple.currency.infrastructure;
 
+import com.dsib.springtemporalsimple.currency.application.workflow.CurrencyInfoWorkflowImpl;
 import com.dsib.springtemporalsimple.currency.application.workflow.GetCurrencyBankBranchesWorkflowImpl;
-import com.dsib.springtemporalsimple.currency.application.workflow.GetCurrencyBestBankActivitiesImpl;
+import com.dsib.springtemporalsimple.currency.application.workflow.activity.GetCurrencyBestBankActivitiesImpl;
+import com.dsib.springtemporalsimple.currency.application.workflow.activity.GetCurrencyInfoActivitiesImpl;
+import com.dsib.springtemporalsimple.workflow.CurrencyInfoWorkflow;
 import io.temporal.client.WorkflowClient;
 import io.temporal.serviceclient.WorkflowServiceStubs;
 import io.temporal.worker.Worker;
@@ -10,11 +13,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_QUEUE;
+
 @Configuration
 @Slf4j
 public class TemporalWorkerFactory {
-
-  public static final String TASK_QUEUE = "currency_task_queue";
 
   @Bean
   public WorkflowClient initTemporalInfrastructure() {
@@ -23,7 +26,7 @@ public class TemporalWorkerFactory {
     WorkflowServiceStubs service = WorkflowServiceStubs.newLocalServiceStubs();
     WorkflowClient client = WorkflowClient.newInstance(service);
     WorkerFactory factory = WorkerFactory.newInstance(client);
-    Worker worker = factory.newWorker(TASK_QUEUE);
+    Worker worker = factory.newWorker(DEFAULT_QUEUE);
     registerEntities(worker);
 
     factory.start();
@@ -34,6 +37,9 @@ public class TemporalWorkerFactory {
   private void registerEntities(Worker worker) {
     worker.registerWorkflowImplementationTypes(GetCurrencyBankBranchesWorkflowImpl.class);
     worker.registerActivitiesImplementations(new GetCurrencyBestBankActivitiesImpl());
+
+    worker.registerWorkflowImplementationTypes(CurrencyInfoWorkflowImpl.class);
+    worker.registerActivitiesImplementations(new GetCurrencyInfoActivitiesImpl());
   }
 
 }
