@@ -34,7 +34,7 @@ public class GetCurrencyBankBranchesWorkflowImpl implements GetCurrencyBankBranc
   public List<String> getBestCurrenciesPriceBanksBranches(List<String> currencies) {
 
     List<String> bankNames = getCurrencyBestBankActivities.getCurrencyBestBank(currencies);
-    List<String> bankAddresses = getBankNearestBranchesActivities.getBankNearestBranches(bankNames);
+    List<String> bankAddresses = getBankNearestBranchesActivities.getBanksNearestBranches(bankNames);
 
     return bankAddresses;
   }

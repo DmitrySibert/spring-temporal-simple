@@ -26,5 +26,5 @@ public interface GetBankNearestBranchesActivities {
    * @return list of addresses
    */
   @ActivityMethod
-  List<String> getBankNearestBranches(List<String> bankNames);
+  List<String> getBanksNearestBranches(List<String> bankNames);
 }

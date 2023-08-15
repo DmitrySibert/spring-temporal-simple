@@ -11,7 +11,7 @@ public class GetBankNearestBranchesActivitiesImpl implements GetBankNearestBranc
   }
 
   @Override
-  public List<String> getBankNearestBranches(List<String> bankNames) {
+  public List<String> getBanksNearestBranches(List<String> bankNames) {
     return List.of("Berlin", "Washington");
   }
 }
