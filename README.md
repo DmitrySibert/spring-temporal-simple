@@ -10,3 +10,5 @@ https://docs.temporal.io/kb/all-the-ways-to-run-a-cluster#docker--docker-compose
 # application
 bank - 8080
 currency - 8082
+
+next: https://docs.temporal.io/dev-guide/java/foundations#run-a-dev-worker
