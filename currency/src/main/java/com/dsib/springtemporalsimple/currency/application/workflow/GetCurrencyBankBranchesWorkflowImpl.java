@@ -1,4 +1,4 @@
-package com.dsib.springtemporalsimple.currency.logic;
+package com.dsib.springtemporalsimple.currency.application;
 
 import com.dsib.springtemporalsimple.workflow.GetBankNearestBranchesActivities;
 import com.dsib.springtemporalsimple.workflow.GetCurrencyBankBranchesWorkflow;
@@ -34,7 +34,7 @@ public class GetCurrencyBankBranchesWorkflowImpl implements GetCurrencyBankBranc
 
     List<String> bankNames = getCurrencyBankBranchesWorkflow.getBestCurrenciesPriceBanksBranches(currencies);
     List<String> bankAddresses = getBankNearestBranchesActivities.getBankNearestBranches(bankNames);
-    
+
     return bankAddresses;
   }
 }
