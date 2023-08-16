@@ -1,6 +1,8 @@
 package com.dsib.springtemporalsimple.bank.infrastructure;
 
+import com.dsib.springtemporalsimple.bank.application.GetBankInfoActivitiesImpl;
 import com.dsib.springtemporalsimple.bank.application.GetBankNearestBranchesActivitiesImpl;
+import com.dsib.springtemporalsimple.bank.application.workflow.GetBankInfoWorkflowImpl;
 import io.temporal.client.WorkflowClient;
 import io.temporal.serviceclient.WorkflowServiceStubs;
 import io.temporal.worker.Worker;
@@ -32,5 +34,8 @@ public class TemporalWorkerFactory {
 
   private void registerEntities(Worker worker) {
     worker.registerActivitiesImplementations(new GetBankNearestBranchesActivitiesImpl());
+
+    worker.registerActivitiesImplementations(new GetBankInfoActivitiesImpl());
+    worker.registerWorkflowImplementationTypes(GetBankInfoWorkflowImpl.class);
   }
 }

@@ -4,8 +4,10 @@ import com.dsib.springtemporalsimple.workflow.domain.CurrencyInfo;
 import io.temporal.activity.ActivityInterface;
 import io.temporal.activity.ActivityMethod;
 
+import java.util.List;
+
 @ActivityInterface
-public interface GetCurrencyInfoActivities {
+public interface GetBankInfoActivities {
   @ActivityMethod
-  CurrencyInfo getCurrenciesInfo();
+  List<String> getBankInfo();
 }
