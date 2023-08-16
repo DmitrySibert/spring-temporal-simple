@@ -1,8 +1,8 @@
 package com.dsib.springtemporalsimple.currency.application.workflow;
 
-import com.dsib.springtemporalsimple.workflow.GetBankNearestBranchesActivities;
+import com.dsib.springtemporalsimple.workflow.activity.GetBankNearestBranchesActivities;
 import com.dsib.springtemporalsimple.workflow.GetCurrencyBankBranchesWorkflow;
-import com.dsib.springtemporalsimple.workflow.GetCurrencyBestBankActivities;
+import com.dsib.springtemporalsimple.workflow.activity.GetCurrencyBestBankActivities;
 import io.temporal.activity.ActivityOptions;
 import io.temporal.workflow.Workflow;
 
