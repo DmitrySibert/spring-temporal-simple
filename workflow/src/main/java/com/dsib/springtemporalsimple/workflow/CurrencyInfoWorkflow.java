@@ -8,6 +8,15 @@ import io.temporal.workflow.WorkflowMethod;
 
 import java.time.Duration;
 
+/**
+ * An endless workflow.
+ *
+ * Workflow is registered and started within the currency service.
+ *
+ * Workflow task queue is DEFAULT_CURRENCY_QUEUE;
+ *
+ * Contains the single activity in currency service: GetCurrencyInfoActivities
+ */
 @WorkflowInterface
 public interface CurrencyInfoWorkflow {
 
@@ -18,7 +27,7 @@ public interface CurrencyInfoWorkflow {
   void provideCurrencyInfo(Duration updateRate);
 
   /**
-   * Out of order update
+   * Out of order currency info update
    */
   @SignalMethod
   void updateNow();
