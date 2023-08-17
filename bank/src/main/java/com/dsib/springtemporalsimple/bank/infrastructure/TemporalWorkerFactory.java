@@ -1,7 +1,7 @@
 package com.dsib.springtemporalsimple.bank.infrastructure;
 
-import com.dsib.springtemporalsimple.bank.application.GetBankInfoActivitiesImpl;
-import com.dsib.springtemporalsimple.bank.application.GetBankNearestBranchesActivitiesImpl;
+import com.dsib.springtemporalsimple.bank.application.workflow.activity.GetBankInfoActivitiesImpl;
+import com.dsib.springtemporalsimple.bank.application.workflow.activity.GetBankNearestBranchesActivitiesImpl;
 import com.dsib.springtemporalsimple.bank.application.workflow.GetBankInfoWorkflowImpl;
 import io.temporal.client.WorkflowClient;
 import io.temporal.serviceclient.WorkflowServiceStubs;

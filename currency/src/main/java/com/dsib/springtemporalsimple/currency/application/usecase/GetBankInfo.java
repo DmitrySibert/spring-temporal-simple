@@ -4,6 +4,7 @@ import com.dsib.springtemporalsimple.workflow.GetBankInfoWorkflow;
 import com.dsib.springtemporalsimple.workflow.GetCurrencyBankBranchesWorkflow;
 import io.temporal.client.WorkflowClient;
 import io.temporal.client.WorkflowOptions;
+import io.temporal.common.RetryOptions;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -28,6 +29,6 @@ public class GetBankInfo {
 
     GetBankInfoWorkflow workflow = workflowClient.newWorkflowStub(GetBankInfoWorkflow.class, workflowOptions);
 
-    WorkflowClient.start(workflow::provideBankInfo, Duration.ofMinutes(2));
+    WorkflowClient.start(workflow::provideBankInfo, Duration.ofSeconds(20));
   }
 }
