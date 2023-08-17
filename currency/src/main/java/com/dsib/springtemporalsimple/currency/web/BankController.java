@@ -3,6 +3,8 @@ package com.dsib.springtemporalsimple.currency.web;
 import com.dsib.springtemporalsimple.currency.application.usecase.GetBankInfo;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(value = "/bank")
 public class BankController {
@@ -14,7 +16,7 @@ public class BankController {
   }
 
   @PostMapping("/info")
-  public void startCurrencyInfo() {
-    getBankInfo.find();
+  public List<String> getBankInfo() {
+    return getBankInfo.find();
   }
 }

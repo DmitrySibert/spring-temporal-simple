@@ -9,6 +9,9 @@ import io.temporal.workflow.Workflow;
 import java.time.Duration;
 import java.util.List;
 
+import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_BANK_QUEUE;
+import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_CURRENCY_QUEUE;
+
 public class GetCurrencyBankBranchesWorkflowImpl implements GetCurrencyBankBranchesWorkflow {
 
   private final GetBankNearestBranchesActivities getBankNearestBranchesActivities;
@@ -19,6 +22,7 @@ public class GetCurrencyBankBranchesWorkflowImpl implements GetCurrencyBankBranc
       GetCurrencyBestBankActivities.class,
       ActivityOptions.newBuilder()
         .setStartToCloseTimeout(Duration.ofMinutes(10))
+        .setTaskQueue(DEFAULT_CURRENCY_QUEUE)
         .build()
     );
 
@@ -26,6 +30,7 @@ public class GetCurrencyBankBranchesWorkflowImpl implements GetCurrencyBankBranc
       GetBankNearestBranchesActivities.class,
       ActivityOptions.newBuilder()
         .setStartToCloseTimeout(Duration.ofMinutes(10))
+        .setTaskQueue(DEFAULT_BANK_QUEUE)
         .build()
     );
   }

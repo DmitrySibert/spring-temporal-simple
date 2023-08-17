@@ -5,10 +5,8 @@ import com.dsib.springtemporalsimple.workflow.activity.GetCurrencyBestBankActivi
 import java.util.List;
 
 public class GetCurrencyBestBankActivitiesImpl implements GetCurrencyBestBankActivities {
-
   @Override
   public List<String> getCurrencyBestBank(List<String> currencies) {
     return List.of("Deutsche Bank", "Chase Bank");
   }
-
 }

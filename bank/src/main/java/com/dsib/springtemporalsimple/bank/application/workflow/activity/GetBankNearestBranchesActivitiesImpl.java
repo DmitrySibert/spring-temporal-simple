@@ -1,4 +1,4 @@
-package com.dsib.springtemporalsimple.bank.application;
+package com.dsib.springtemporalsimple.bank.application.workflow.activity;
 
 import com.dsib.springtemporalsimple.workflow.activity.GetBankNearestBranchesActivities;
 
