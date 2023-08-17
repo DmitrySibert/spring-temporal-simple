@@ -20,7 +20,7 @@ GetCurrencyBankBranchesWorkflow - a workflow. Has two activities across the both
 # API
 API provided as an Insomnia collection
 
-#Notes
+# Notes
 
 Tasks queues. Each workflow and activity implementations should be registered in a worker. 
 A worker can be attached to the certain TASK QUEUE. You have to run a workflow, declare an activity within a workflow using the TASK QUEUE which is attached to the worker where 
