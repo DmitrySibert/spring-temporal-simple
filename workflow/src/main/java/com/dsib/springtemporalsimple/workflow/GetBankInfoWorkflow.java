@@ -4,10 +4,11 @@ import io.temporal.workflow.WorkflowInterface;
 import io.temporal.workflow.WorkflowMethod;
 
 import java.time.Duration;
+import java.util.List;
 
 @WorkflowInterface
 public interface GetBankInfoWorkflow {
 
   @WorkflowMethod
-  void provideBankInfo(Duration updateRate);
+  List<String> provideBankInfo();
 }

@@ -10,6 +10,8 @@ import io.temporal.workflow.Workflow;
 import java.time.Duration;
 import java.util.List;
 
+import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_BANK_QUEUE;
+
 public class GetBankInfoWorkflowImpl implements GetBankInfoWorkflow {
 
   private GetBankInfoActivities getBankInfoActivities;
@@ -27,16 +29,14 @@ public class GetBankInfoWorkflowImpl implements GetBankInfoWorkflow {
             .setBackoffCoefficient(1)
             .setMaximumAttempts(3)
             .build())
+        .setTaskQueue(DEFAULT_BANK_QUEUE)
         .build()
     );
     addresses = List.of();
   }
 
   @Override
-  public void provideBankInfo(Duration updateRate) {
-    while (true) {
-      addresses = getBankInfoActivities.getBankInfo();
-      Workflow.sleep(updateRate);
-    }
+  public List<String> provideBankInfo() {
+    return getBankInfoActivities.getBankInfo();
   }
 }

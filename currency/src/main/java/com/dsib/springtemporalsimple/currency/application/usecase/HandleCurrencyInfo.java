@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.time.Duration;
 import java.util.UUID;
 
-import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_QUEUE;
+import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_CURRENCY_QUEUE;
 
 @Service
 public class HandleCurrencyInfo {
@@ -23,7 +23,7 @@ public class HandleCurrencyInfo {
 
   public void startCurrencyInfo() {
     WorkflowOptions workflowOptions = WorkflowOptions.newBuilder()
-      .setTaskQueue(DEFAULT_QUEUE)
+      .setTaskQueue(DEFAULT_CURRENCY_QUEUE)
       .setWorkflowId(WORKFLOW_ID)
       .build();
 

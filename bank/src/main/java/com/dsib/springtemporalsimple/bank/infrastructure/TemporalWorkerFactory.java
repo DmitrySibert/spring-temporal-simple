@@ -1,8 +1,8 @@
 package com.dsib.springtemporalsimple.bank.infrastructure;
 
+import com.dsib.springtemporalsimple.bank.application.workflow.GetBankInfoWorkflowImpl;
 import com.dsib.springtemporalsimple.bank.application.workflow.activity.GetBankInfoActivitiesImpl;
 import com.dsib.springtemporalsimple.bank.application.workflow.activity.GetBankNearestBranchesActivitiesImpl;
-import com.dsib.springtemporalsimple.bank.application.workflow.GetBankInfoWorkflowImpl;
 import io.temporal.client.WorkflowClient;
 import io.temporal.serviceclient.WorkflowServiceStubs;
 import io.temporal.worker.Worker;
@@ -11,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_QUEUE;
+import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_BANK_QUEUE;
 
 @Configuration
 @Slf4j
@@ -24,7 +24,7 @@ public class TemporalWorkerFactory {
     WorkflowServiceStubs service = WorkflowServiceStubs.newLocalServiceStubs();
     WorkflowClient client = WorkflowClient.newInstance(service);
     WorkerFactory factory = WorkerFactory.newInstance(client);
-    Worker worker = factory.newWorker(DEFAULT_QUEUE);
+    Worker worker = factory.newWorker(DEFAULT_BANK_QUEUE);
     registerEntities(worker);
 
     factory.start();

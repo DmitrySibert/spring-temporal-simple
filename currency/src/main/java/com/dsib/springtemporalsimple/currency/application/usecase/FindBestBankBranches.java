@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.UUID;
 
-import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_QUEUE;
+import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_CURRENCY_QUEUE;
 
 @Service
 public class FindBestBankBranches {
@@ -21,7 +21,7 @@ public class FindBestBankBranches {
 
   public List<String> find(List<String> currencies) {
     WorkflowOptions workflowOptions = WorkflowOptions.newBuilder()
-      .setTaskQueue(DEFAULT_QUEUE)
+      .setTaskQueue(DEFAULT_CURRENCY_QUEUE)
       .setWorkflowId(UUID.randomUUID().toString())
       .build();
 

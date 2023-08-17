@@ -9,6 +9,8 @@ import io.temporal.workflow.Workflow;
 
 import java.time.Duration;
 
+import static com.dsib.springtemporalsimple.workflow.WorkflowSharedConstants.DEFAULT_CURRENCY_QUEUE;
+
 public class CurrencyInfoWorkflowImpl implements CurrencyInfoWorkflow {
 
   private final GetCurrencyInfoActivities getCurrencyInfoActivities;
@@ -20,6 +22,7 @@ public class CurrencyInfoWorkflowImpl implements CurrencyInfoWorkflow {
       GetCurrencyInfoActivities.class,
       ActivityOptions.newBuilder()
         .setStartToCloseTimeout(Duration.ofMinutes(10))
+        .setTaskQueue(DEFAULT_CURRENCY_QUEUE)
         .build()
     );
     currencyInfo = null;
